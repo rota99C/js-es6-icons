@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header h1 {
+  font-family: "Acme", sans-serif;
+  color: #29b1dd;
+}
+
+.navbar {
+  background-color: #29b1dd;
+}
+
+select {
+  width: 100px;
+}
+
+.container-fluid {
+  background-color: #dddddd;
+}
+
+.card-icon {
+  margin-bottom: 80px;
+  box-shadow: 2px 1px gray;
+  border-radius: 20px;
+}

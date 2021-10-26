@@ -100,3 +100,17 @@ const icons = [
 
 
 
+icons.forEach((icon, index, array) => {
+    const cardElement = `
+
+    <div class="card-icon bg-white col-2 d-flex flex-column align-items-center pt-4 pb-4 ms-2">
+        <i class="${icon.family} ${icon.prefix}${icon.name} fs-1"></i>
+        <p class="mb-0">${icon.name}</p>
+    </div>
+    
+    `
+    document.querySelector(".container-fluid").insertAdjacentHTML("beforeend", cardElement)
+})
+
+
+
