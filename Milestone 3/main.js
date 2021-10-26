@@ -103,7 +103,7 @@ const icons = [
 icons.forEach((icon, index, array) => {
     const cardElement = `
 
-    <div class="card-icon bg-white col-2 d-flex flex-column align-items-center pt-4 pb-4 ms-2">
+    <div class="card-icon ${icon.type} bg-white col-2 d-flex flex-column align-items-center pt-4 pb-4 ms-2">
         <i class="${icon.family} ${icon.prefix}${icon.name} ${icon.type} fs-1"></i>
         <p class="mb-0">${icon.name}</p>
     </div>
@@ -121,14 +121,77 @@ let iconList = document.getElementsByTagName("i")
 for (let index = 0; index < iconList.length; index++) {
     const singleIcon = iconList[index];
 
-    if (singleIcon.classList.contains("user")) {
+    let userIcon = singleIcon.classList.contains("user")
+    // console.log(userIcon);
+    let animalIcon = singleIcon.classList.contains("animal")
+    let vegetableIcon = singleIcon.classList.contains("vegetable")
+
+    if (userIcon) {
         singleIcon.classList.add("purple")
-    } else if (singleIcon.classList.contains("vegetable")) {
+    } else if (vegetableIcon) {
         singleIcon.classList.add("orange")
-    } else if (singleIcon.classList.contains("animal")) {
+    } else if (animalIcon) {
         singleIcon.classList.add("blue")
     }
 
 }
 
-// alternativa: assegnare alle classi ${icon.type} il colore direttamente in CSS?
+
+// Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+
+
+
+let optionList = document.getElementsByTagName("option")
+
+
+// console.log(cardAnimal);
+
+for (let index = 0; index < optionList.length; index++) {
+    const singleOption = optionList[index];
+    // console.log(singleOption);
+
+
+
+    if (singleOption.attributes[0].value == "animal") {
+        this.addEventListener("change", function () {
+            // rimangono visibili solo gli animali
+            console.log("filtro");
+
+        })
+    } else if (singleOption.attributes[0].value == "user") {
+        this.addEventListener("change", function () {
+            // rimangono visibili solo gli animali
+        })
+    } else if (singleOption.attributes[0].value == "vegetable") {
+        this.addEventListener("change", function () {
+            // rimangono visibili solo le verdure
+        })
+    } else if (singleOption.attributes[0].value == "all") {
+        this.addEventListener("change", function () {
+            // rimangono visibili tutti
+        })
+    }
+
+}
+
+/* let card = document.getElementsByClassName(".card-icon")
+let cardAnimal = document.getElementsByClassName(".card-icon.animal")
+let cardVegetable = document.getElementsByClassName(".card-icon.vegetable")
+let cardUser = document.getElementsByClassName(".card-icon.user")
+let optionList = document.getElementsByTagName("option")
+
+for (let index = 0; index < card.length; index++) {
+    const singleCard = card[index];
+    const singleCardAnimal = cardAnimal[index];
+    const singleCardVegetable = cardVegetable[index];
+    const singleCardUser = cardUser[index];
+    const singleOption = optionList[index];
+
+    singleOption.addEventListener("change", function () {
+        if (singleOption.attributes[0].value == "animal") {
+            singleCardAnimal.style.display = "none";
+        }
+    })
+
+}
+ */
